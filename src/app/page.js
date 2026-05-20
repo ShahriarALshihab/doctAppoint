@@ -1,9 +1,21 @@
+import HeroBanner from "@/components/home/HeroBanner";
+import TopRatedDoctors from "@/components/home/TopRatedDoctors";
+import HowItWorks from "@/components/home/HowItWorks";
+import WhyChooseUs from "@/components/home/WhyChooseUs";
 
+export const metadata = {
+  title: "DocAppoint — Book Doctor Appointments Online",
+  description:
+    "Browse top-rated doctors in Bangladesh and book appointments instantly.",
+};
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="text-red-600 font-bold text-7xl">
-      <h1>Shihab</h1>
-    </div>
+    <>
+      <HeroBanner />
+      <TopRatedDoctors />
+      <HowItWorks />
+      <WhyChooseUs />
+    </>
   );
 }
