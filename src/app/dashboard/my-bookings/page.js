@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 "use client";
 
 import { useState, useEffect } from "react";
@@ -14,10 +15,6 @@ export default function MyBookingsPage() {
   const [loading, setLoading] = useState(true);
   const [selectedBooking, setSelectedBooking] = useState(null);
 
-  useEffect(() => {
-    if (user?.email) fetchBookings();
-  }, [user]);
-
   const fetchBookings = async () => {
     setLoading(true);
     try {
@@ -29,6 +26,10 @@ export default function MyBookingsPage() {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    if (user?.email) fetchBookings();
+  }, [user]);
 
   const handleDelete = async (id) => {
     if (!confirm("Are you sure you want to cancel this appointment?")) return;
@@ -87,7 +88,6 @@ export default function MyBookingsPage() {
               className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5 hover:shadow-md transition-shadow"
             >
               <div className="flex flex-col sm:flex-row gap-4">
-                {/* Doctor Image */}
                 {booking.doctorImage && (
                   <div className="relative w-16 h-16 rounded-xl overflow-hidden flex-shrink-0">
                     <Image
@@ -99,7 +99,6 @@ export default function MyBookingsPage() {
                   </div>
                 )}
 
-                
                 <div className="flex-1 min-w-0">
                   <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
                     <div>
@@ -152,13 +151,12 @@ export default function MyBookingsPage() {
                 </div>
               </div>
 
-              
               <div className="flex gap-3 mt-4 pt-4 border-t border-slate-50">
                 <button
                   onClick={() => setSelectedBooking(booking)}
                   className="flex-1 sm:flex-none btn-outline text-sm py-2 px-5"
                 >
-                  ✏️ Update
+                  Update
                 </button>
                 <button
                   onClick={() => handleDelete(booking._id)}

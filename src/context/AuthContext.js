@@ -51,18 +51,22 @@ export function AuthProvider({ children }) {
   };
 
   
-  const getAndStoreToken = async (currentUser) => {
-    try {
-      const { data } = await axiosInstance.post("/auth/jwt", {
-        email: currentUser.email,
-      });
-      if (data.token) {
-        localStorage.setItem("token", data.token);
-      }
-    } catch {
-      // Server might not be running in dev — ignore
+ const getAndStoreToken = async (currentUser) => {
+  try {
+    const { data } = await axiosInstance.post("/auth/jwt", {
+      email: currentUser.email,
+    });
+
+    console.log("JWT response:", data);
+
+    if (data.token) {
+      localStorage.setItem("token", data.token);
+      console.log("Token saved");
     }
-  };
+  } catch (error) {
+    console.log(error);
+  }
+};
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {

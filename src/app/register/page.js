@@ -49,18 +49,25 @@ export default function RegisterPage() {
     }
   };
 
-  const handleGoogle = async () => {
-    setGoogleLoading(true);
-    try {
-      await googleLogin();
-      toast.success("Signed up with Google! 🎉");
-      router.push("/");
-    } catch {
-      toast.error("Google signup failed. Please try again.");
-    } finally {
-      setGoogleLoading(false);
-    }
-  };
+const handleGoogle = async () => {
+  setGoogleLoading(true);
+
+  try {
+    const result = await googleLogin();
+
+    console.log("Google user:", result.user);
+
+    toast.success("Signed up with Google! 🎉");
+    router.push("/");
+  } catch (error) {
+    console.log("Google Error Code:", error.code);
+    console.log("Google Error Message:", error.message);
+
+    toast.error(error.message);
+  } finally {
+    setGoogleLoading(false);
+  }
+};
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-teal-50 via-slate-50 to-blue-50 flex items-center justify-center px-4 py-16">

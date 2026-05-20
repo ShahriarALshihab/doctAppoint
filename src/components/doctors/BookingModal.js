@@ -67,7 +67,6 @@ export default function BookingModal({ doctor, onClose }) {
           </button>
         </div>
 
-        {/* Doctor Info Summary */}
         <div className="mx-6 mt-4 p-4 bg-blue-50 rounded-xl border border-blue-100">
           <div className="flex items-center justify-between text-sm">
             <div>
@@ -80,7 +79,6 @@ export default function BookingModal({ doctor, onClose }) {
           </div>
         </div>
 
-        {/* Form */}
         <form onSubmit={handleSubmit} className="p-6 space-y-4">
           {/* Read-only fields */}
           <div className="grid grid-cols-2 gap-4">
@@ -135,7 +133,6 @@ export default function BookingModal({ doctor, onClose }) {
                 <option value="">Select gender</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
-                <option value="Other">Other</option>
               </select>
             </div>
             <div>

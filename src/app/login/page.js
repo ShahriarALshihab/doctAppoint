@@ -6,7 +6,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import toast from "react-hot-toast";
 
-export const metadata = { title: "Login — DocAppoint" };
+
 
 function LoginForm() {
   const [email, setEmail] = useState("");

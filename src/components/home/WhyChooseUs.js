@@ -12,7 +12,7 @@ export default function WhyChooseUs() {
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Left */}
+          
           <div>
             <span className="inline-block bg-blue-50 text-blue-600 px-4 py-1 rounded-full text-sm font-semibold mb-4">
               💙 Why Us
@@ -34,10 +34,10 @@ export default function WhyChooseUs() {
             </div>
           </div>
 
-          {/* Right Grid */}
+      
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {features.map((f, i) => (
-              <div key={i} className="p-5 rounded-2xl border border-slate-100 hover:shadow-md transition-all duration-300 group">
+              <div key={i} className="p-5 bg-amber-50 rounded-2xl border border-slate-100 hover:shadow-2xl transition-all duration-300 group">
                 <div className={`w-12 h-12 ${f.color} rounded-xl flex items-center justify-center text-xl mb-3 group-hover:scale-110 transition-transform duration-300`}>
                   {f.icon}
                 </div>
